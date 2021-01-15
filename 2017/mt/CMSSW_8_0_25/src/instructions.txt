@@ -1,0 +1,49 @@
+##########################
+#--ViennaTool/Settings.h
+#-line5:   analysis="FakeFactor_2016_MSSM_preapproval_dev"
+#-line6:  output_folder="$HOME/public/Htautau/FakeRate2016/20170718/" -> or similar, final FFs will be put there
+#-line7:  selCHAN=kMU/kEL/kTAU
+#-line8:  CHAN=kMU/kEL/kTAU
+##########################
+#--ViennaTool/Globals.h
+#-variable "indir": input directory
+##########################
+#src/GlobalClass.cc contains most of the important functions
+#=>FF WP is set in Settings.h with the use of Tight/Loose Fulfill/Fail flags.
+##########################
+
+
+#Run FF tool with sh steerAll.sh in ViennaTool folder
+
+macros/Preselection.C <-> src/TNtupleAnalyzer.cc
+This needs to be adjusted: lep_iso -> put the isolation working point if you run the tautau channel. This refers to the isolation of the non-fake tautau
+For mutau everything is set up. Search for "CHANGE IF TAU WP CHANGES!"
+https://github.com/jbrands/FakeFactor/blob/FF2016ML/ViennaTool/src/TNtupleAnalyzer.cc#L505
+https://github.com/jbrands/FakeFactor/blob/FF2016ML/ViennaTool/src/TNtupleAnalyzer.cc#L516
+
+macros/CRHisto.C, macros/SRHisto.C <-> this can be drastically reduced, but produces lots of histos for now: No need to change
+
+macros/steerFF.C <-> src/FFCalculator.cc runs calculation of fractions and FFs: the binning of the FFs has to be changed in Settings.h if neccessary
+
+macros/fitFakeFactors.C <-> change which fit function is used where! sensitive to binnings: please check output of:
+Images/data_CHAN/pTfitQCD_dmX_njetX_CHAN_preliminary.png
+Images/data_CHAN/pTfitQCD_AI_dmX_njetX_CHAN_preliminary.png needed for OS/SS corrections
+Images/data_CHAN/pTfitWjets_dmX_njetX_CHAN_preliminary.png
+Images/data_CHAN/pTfitWjets_MC_dmX_njetX_CHAN_preliminary.png needed for mT corrections
+Images/data_CHAN/pTfitTT_dmX_njet0_CHAN_preliminary.png
+
+macros/calcCorrections <-> src/FFCalculator.cc
+
+#EMBEDDING
+
+The use of embedded samples can be enabled by setting EMB=1 (default) in Settings.h
+Be sure to also run the preselection with EMB=1 first!
+
+#Decay mode binning
+
+By default, decay-mode 1-prong/3-prong are merged to ensure better statistics when calculating FF/corrections.
+To enable two different bins for the decay mode set all Decay_cuts_X[] arrays in Globals.h to {0,5}
+
+#Corrections binned in 0jet/>=1jet
+
+By default there is no binning of the corrections in the nJet variable, however it can be enabled by setting doNJetBinning=1 in Settings.h

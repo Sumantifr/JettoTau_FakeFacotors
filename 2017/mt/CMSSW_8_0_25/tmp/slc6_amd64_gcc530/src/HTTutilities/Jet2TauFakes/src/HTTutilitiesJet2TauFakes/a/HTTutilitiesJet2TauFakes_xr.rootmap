@@ -1,0 +1,25 @@
+{ decls }
+namespace std {  }
+
+[ libHTTutilitiesJet2TauFakes.so ]
+# List of selected classes
+class FakeFactor
+class IFunctionWrapper
+class WrapperTFormula
+class WrapperTGraph
+class WrapperTH1D
+class WrapperTH2D
+class WrapperTH2F
+class WrapperTH3D
+class map<std::string,std::vector<size_t> >
+class map<std::string,std::vector<std::vector<size_t> > >
+class map<string,vector<unsigned long> >
+class map<string,vector<vector<unsigned long> > >
+header HTTutilities/Jet2TauFakes/interface/FakeFactor.h
+header HTTutilities/Jet2TauFakes/interface/IFunctionWrapper.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTFormula.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTGraph.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTH1D.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTH2D.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTH2F.h
+header HTTutilities/Jet2TauFakes/interface/WrapperTH3D.h

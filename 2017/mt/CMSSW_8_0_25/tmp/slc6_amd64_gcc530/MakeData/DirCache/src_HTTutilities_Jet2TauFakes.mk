@@ -1,0 +1,2 @@
+ALL_PACKAGES += HTTutilities/Jet2TauFakes
+subdirs_src_HTTutilities_Jet2TauFakes := src_HTTutilities_Jet2TauFakes_interface src_HTTutilities_Jet2TauFakes_python src_HTTutilities_Jet2TauFakes_src src_HTTutilities_Jet2TauFakes_test
