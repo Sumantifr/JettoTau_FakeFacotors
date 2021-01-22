@@ -598,6 +598,9 @@ Double_t GlobalClass::getFittedBinContent( const Int_t mode, vector<TGraphAsymmE
   if (i_jpteta == 0 && i_pT == 0 ) tmp = fittedFFs.at(0);
   if (i_jpteta == 0 && i_pT == 1 ) tmp = fittedFFs.at(1);
   if (i_jpteta == 0 && i_pT == 2 ) tmp = fittedFFs.at(2);
+  if (i_jpteta == 1 && i_pT == 0 ) tmp = fittedFFs.at(3);
+  if (i_jpteta == 1 && i_pT == 1 ) tmp = fittedFFs.at(4);
+  if (i_jpteta == 1 && i_pT == 2 ) tmp = fittedFFs.at(5);
 
   double x=0; double y=0; double cont=0;
   for (int ipt=0; ipt<fitBins; ipt++){
@@ -1044,4 +1047,3 @@ TString GlobalClass::getCatString_noSel(Int_t categoryMode){
   return "";
   
 }
-
